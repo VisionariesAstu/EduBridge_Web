@@ -32,7 +32,7 @@ The Home Tutoring Automation System is a platform designed to connect qualified 
 
 ## Project Structure
 ```
-home-tutoring-automation-system/
+EduBridge_Web/
 ├── public/                     # Public assets
 ├── src/                        # Source files
 │   ├── components/             # Reusable UI components
