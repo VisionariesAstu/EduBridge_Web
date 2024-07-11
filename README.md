@@ -1,4 +1,4 @@
-# Home Tutoring Automation System
+# EduBridge (Home-Tutor Automation)
 
 ## Overview
 The Home Tutoring Automation System is a platform designed to connect qualified teachers with students for home tutoring sessions. The system addresses concerns of safety and convenience by leveraging technology to create a secure and efficient environment for home teaching. Key features include a database of verified teachers, advanced filtering options, and integrated video conferencing optimized for teaching and learning.
