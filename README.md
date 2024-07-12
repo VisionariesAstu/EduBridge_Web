@@ -1,9 +1,11 @@
 # EduBridge (Home-Tutor Automation)
 
 ## Overview
+
 The Home Tutoring Automation System is a platform designed to connect qualified teachers with students for home tutoring sessions. The system addresses concerns of safety and convenience by leveraging technology to create a secure and efficient environment for home teaching. Key features include a database of verified teachers, advanced filtering options, and integrated video conferencing optimized for teaching and learning.
 
 ## Table of Contents
+
 - Overview
 - Features
 - Technology Stack
@@ -14,6 +16,7 @@ The Home Tutoring Automation System is a platform designed to connect qualified 
 - License
 
 ## Features
+
 - Secure and verified teacher database
 - Advanced search and filtering options
 - User authentication and authorization
@@ -23,6 +26,7 @@ The Home Tutoring Automation System is a platform designed to connect qualified 
 - Responsive design for all devices
 
 ## Technology Stack
+
 - Frontend: Next.js, Tailwind CSS
 - Backend: Next.js
 - Database: mysql
@@ -31,50 +35,61 @@ The Home Tutoring Automation System is a platform designed to connect qualified 
 - CI/CD: GitHub Actions
 
 ## Project Structure
-```
+
+```bash
 EduBridge_Web/
-├── public/                     # Public assets
-├── src/                        # Source files
-│   ├── components/             # Reusable UI components
-│   ├── pages/                  # Next.js pages
-│   ├── styles/                 # Global and component-specific styles
-│   ├── utils/                  # Utility functions
-│   └── ...                     # Other folders
-├── .eslintrc.js                # ESLint configuration
-├── .prettierrc                 # Prettier configuration
-├── next.config.js              # Next.js configuration
-├── package.json                # Package dependencies and scripts
-└── README.md                   # Project documentation
+├── public/
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── styles/
+│   ├── utils/
+│   └── ...
+├── .eslintrc.js
+├── .prettierrc
+├── next.config.js
+├── package.json
+└── README.md
 ```
 
 ## Getting Started
 
 ### Prerequisites
+
 - Node.js (v14 or above)
 - npm or yarn
 
 ### Setup
+
 1. Clone the repository:
 
-```
+```bash
 git clone git@github.com:VisionariesAstu/EduBridge_Web.git
 cd EduBridge_Web
 ```
 
 2. Install dependencies:
 
-```
+```bash
 npm install
 # or
+pnpm install
+# or
 yarn install
+# or
+bun install
 ```
 
-3. Run the development server:
+3. run the development server:
 
-```
+```bash
 npm run dev
 # or
 yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
 4. Open your browser:
@@ -82,6 +97,7 @@ yarn dev
 Navigate to http://localhost:3000 to see the application in action.
 
 ### Contributing
+
 We welcome contributions to enhance the Home Tutoring Automation System. To contribute, please follow these steps:
 
 1. Fork the repository.
@@ -92,4 +108,11 @@ We welcome contributions to enhance the Home Tutoring Automation System. To cont
 
 Please ensure your code adheres to our coding standards and includes necessary tests.
 
+### Learn More
 
+To learn more about Next.js, take a look at the following resources:
+
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
