@@ -1,127 +1,84 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
 
-const config: Config = {
+const config = {
+  darkMode: ["class"],
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{ts,tsx}",
+    "./components/**/*.{ts,tsx}",
+    "./app/**/*.{ts,tsx}",
+    "./src/**/*.{ts,tsx}",
   ],
+  prefix: "",
   theme: {
-    extend: {
-      backgroundImage: {
-        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+    container: {
+      center: true,
+      padding: "2rem",
+      screens: {
+        "2xl": "1400px",
       },
+    },
+    extend: {
       colors: {
+        border: "hsl(var(--border))",
+        input: "hsl(var(--input))",
+        ring: "hsl(var(--ring))",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
         primary: {
-          100: "#3B346C",
-          50: "#534b90",
-          20: "#251d48",
+          DEFAULT: "hsl(var(--primary))",
+          foreground: "hsl(var(--primary-foreground))",
         },
         secondary: {
-          100: "#385EC0",
-          50: "#577ed3",
-          20: "#273f85",
+          DEFAULT: "hsl(var(--secondary))",
+          foreground: "hsl(var(--secondary-foreground))",
         },
-        error: {
-          100: "#FF0000",
-          50: "#ff3333",
-          20: "#cc0000",
+        destructive: {
+          DEFAULT: "hsl(var(--destructive))",
+          foreground: "hsl(var(--destructive-foreground))",
         },
-        success: {
-          100: "#1FD103",
-          50: "#4ff335",
-          20: "#148201",
+        muted: {
+          DEFAULT: "hsl(var(--muted))",
+          foreground: "hsl(var(--muted-foreground))",
         },
-        "primary-background-1": {
-          100: "#2B7878",
-          50: "#4ba0a0",
-          20: "#1c5050",
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
-        "primary-text-1": {
-          100: "#000000",
-          50: "#333333",
-          20: "#00000040",
+        popover: {
+          DEFAULT: "hsl(var(--popover))",
+          foreground: "hsl(var(--popover-foreground))",
         },
-        "primary-text-2": {
-          100: "#FFFFFF",
-          50: "#ffffff80",
-          20: "#cccccc",
+        card: {
+          DEFAULT: "hsl(var(--card))",
+          foreground: "hsl(var(--card-foreground))",
         },
-        "secondary-text-1": {
-          100: "#2B2B2B",
-          50: "#4d4d4d",
-          20: "#1c1c1c",
+      },
+      fontFamily: {
+        sans: ["var(--font-sans)", ...fontFamily.sans],
+      },
+      borderRadius: {
+        lg: "var(--radius)",
+        md: "calc(var(--radius) - 2px)",
+        sm: "calc(var(--radius) - 4px)",
+      },
+      keyframes: {
+        "accordion-down": {
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
-        "secondary-text-2": {
-          100: "#EAEAEA",
-          50: "#ffffff",
-          20: "#b0b0b0",
+        "accordion-up": {
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
         },
-        "surface-BG": {
-          100: "#CEE5E6",
-          50: "#e2f4f5",
-          20: "#9fb5b5",
-        },
-        disabled: {
-          100: "#D9D9D9",
-          50: "#eaeaea",
-          20: "#b3b3b3",
-        },
-        "Neutrals-primary": {
-          100: "#cbcbf5",
-          50: "#dbdbff",
-          20: "#a3a3c7",
-        },
-        "Neutrals-20": {
-          100: "#D6DDEB",
-          50: "#e8ecf3",
-          20: "#a8afb7",
-        },
-        "Neutrals-60": {
-          100: "#7c8493",
-          50: "#979ca8",
-          20: "#5a6071",
-        },
-        "Neutrals-80": {
-          100: "#515b6f",
-          50: "#6f778d",
-          20: "#3a4252",
-        },
-        "Neutrals-100": {
-          100: "#25324b",
-          50: "#39445f",
-          20: "#192039",
-        },
-        "Accents-blue": {
-          100: "#308fff",
-          50: "#57a7ff",
-          20: "#1a6ccc",
-        },
-        "Accents-green": {
-          100: "#4fff40",
-          50: "#73ff6d",
-          20: "#36b32e",
-        },
-        "Accents-purple": {
-          100: "#b338ff",
-          50: "#c561ff",
-          20: "#8a2cc6",
-        },
-        "Accents-orange-2": {
-          100: "#ffb800",
-          50: "#ffc94d",
-          20: "#cc8e00",
-        },
-        "Accents-Orange": {
-          100: "#ff621f",
-          50: "#ff8c55",
-          20: "#cc4e19",
-        },
+      },
+      animation: {
+        "accordion-down": "accordion-down 0.2s ease-out",
+        "accordion-up": "accordion-up 0.2s ease-out",
       },
     },
   },
-  plugins: [],
-};
+  plugins: [require("tailwindcss-animate")],
+} satisfies Config;
+
 export default config;
