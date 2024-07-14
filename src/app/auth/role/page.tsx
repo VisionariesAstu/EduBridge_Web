@@ -5,7 +5,7 @@ import { Button } from "@/components/UI/button";
 import Link from "next/link";
 const Role = () => {
   return (
-    <div className="flex w-full min-h-screen bg-white text-black">
+    <div className="flex w-full min-h-screen bg-[url('/texture.png')] bg-white text-black">
       <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5">
         <img src={RightImage.src} alt="" className="w-full object-cover rounded-lg" />
       </div>
