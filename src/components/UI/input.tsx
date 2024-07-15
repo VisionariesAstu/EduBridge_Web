@@ -29,7 +29,7 @@ export interface InputWithIconProps extends InputProps {
 const InputWithIcon = React.forwardRef<HTMLInputElement, InputWithIconProps>(
   ({ icon, className, type, ...props }, ref) => {
     return (
-      <div className="relative flex items-center w-full">
+      <div className="relative flex items-center w-full bg-white">
         <div className="absolute left-3">{icon}</div>
         <Input
           type={type}
