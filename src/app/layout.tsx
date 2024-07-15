@@ -22,7 +22,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen font-sans antialiased bg-[#2e275f] bg-[url('/texture.png')] bg-blend-color-burn bg-cover bg-center",
+          "min-h-screen font-sans antialiased bg-[#2e275f] bg-[url('/textured.svg')] bg-blend-color-burn bg-cover bg-center",
           fontSans.variable
         )}
       >

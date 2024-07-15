@@ -1,10 +1,9 @@
 import { Button } from "@/components/ui/button";
-import { ModeToggle } from "@/components/ui/mode_toggle";
 import Image from "next/image";
 
 export default function LandingHeader() {
   return (
-    <nav className="flex justify-between items-center p-4 ">
+    <nav className="flex justify-between items-center p-4 lg:w-10/12 mx-auto">
       <div className="flex items-center space-x-4">
         <Image
           src="/Edu Bridge Wide Logo White.png"
@@ -14,12 +13,15 @@ export default function LandingHeader() {
         />
       </div>
       <div className="flex items-center space-x-4">
-        <Button className="px-10 mt-1text-white bg-secondary hover:bg-[#171236] text-lg font-semibold">
+        <Button className="px-8 text-white bg-secondary hover:bg-[#171236] font-semibold">
           Login
         </Button>
-        <div className="theme-toggle lg:block hidden">
-          <ModeToggle />
-        </div>
+        <Button
+          variant="outline"
+          className="hidden lg:block px-8 text-white bg-[#171236] font-semibold"
+        >
+          SignUp
+        </Button>
       </div>
     </nav>
   );

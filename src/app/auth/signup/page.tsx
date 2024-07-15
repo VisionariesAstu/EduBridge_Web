@@ -2,25 +2,26 @@ import React from "react";
 import RightImage from "/public/RoleImage.png";
 import Logo from "/public/Logo.png";
 import GoogleLogo from "/public/google_logo.png";
-import { Button } from "@/components/UI/button";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import Link from "next/link";
-import { Input, InputWithIcon } from "@/components/UI/input";
+import { InputWithIcon } from "@/components/ui/input";
 import {
   EnvelopeClosedIcon,
-  EyeClosedIcon,
   EyeOpenIcon,
   LockClosedIcon,
   PersonIcon,
 } from "@radix-ui/react-icons";
-import { SelectItem } from "@/components/UI/select";
+
 const SignUp = () => {
   return (
     <div className="flex w-full min-h-screen bg-[url('/texture.png')] bg-white text-black">
-      <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5">
-        <img
-          src={RightImage.src}
-          alt=""
-          className="w-full object-cover rounded-lg"
+      <div className="flex justify-center h-screen w-1/2 max-lg:hidden p-5 relative">
+        <Image
+          src={RightImage}
+          alt="Right Image"
+          fill
+          className="object-cover p-10 rounded-lg overflow-clip"
         />
       </div>
       <div className="flex flex-col items-center justify-center w-1/2  p-32 max-lg:w-full max-md:p-10">
@@ -70,7 +71,6 @@ const SignUp = () => {
               <EyeOpenIcon color="gray" className="cursor-pointer" />
             </div>
           </div>
-
         </div>
 
         <Button className="w-full mb-3">SignUp</Button>
