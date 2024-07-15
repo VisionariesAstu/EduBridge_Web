@@ -1,10 +1,10 @@
 import React from "react";
 import RightImage from "/public/RoleImage.png";
 import Logo from "/public/Logo.png";
-
-import { Button } from "@/components/UI/button";
+import Image from "next/image";
+import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { InputWithIcon } from "@/components/UI/input";
+import { InputWithIcon } from "@/components/ui/input";
 import { PersonIcon } from "@radix-ui/react-icons";
 import {
   Select,
@@ -12,16 +12,17 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/UI/select";
+} from "@/components/ui/select";
 import { CountryName } from "./countryLists";
 const SignUp = () => {
   return (
     <div className="flex w-full min-h-screen bg-[url('/texture.png')] bg-white text-black">
-      <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5">
-        <img
-          src={RightImage.src}
-          alt=""
-          className="w-full object-cover rounded-lg"
+      <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5 relative">
+        <Image
+          src={RightImage}
+          alt="Right Image"
+          fill
+          className="object-cover p-10 rounded-lg overflow-clip"
         />
       </div>
       <div className="flex flex-col items-center justify-center w-1/2  p-32 max-lg:w-full max-md:p-10">
