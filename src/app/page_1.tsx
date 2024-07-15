@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { blinker, fugaz_one } from "@/styles/fonts";
 import CustomButton from "@/components/ui/custom_button";
-import { FaPlay } from "react-icons/fa";
 import Hero from "../../public/Hero.jpg";
+import { PlayIcon } from "@radix-ui/react-icons";
 
 export default function Page1() {
   return (
@@ -48,7 +48,7 @@ export default function Page1() {
                 className={`flex items my-4 items-center text-xs w-10/12 text-white ${blinker.className}`}
               >
                 <div className="h-6 w-6 mr-3 bg-white rounded-full flex justify-center items-center">
-                  <FaPlay className="ml-0.5" size={10} color="black" />
+                  <PlayIcon className="ml-0.5" color="black" />
                 </div>
                 Play this Story
               </div>
@@ -117,7 +117,7 @@ export default function Page1() {
             className={`flex items my-4 items-center text-xs w-10/12 text-white ${blinker.className}`}
           >
             <div className="h-6 w-6 mr-3 bg-white rounded-full flex justify-center items-center">
-              <FaPlay className="ml-0.5" size={10} color="black" />
+              <PlayIcon className="ml-0.5" color="black" />
             </div>
             Play this Story
           </div>
