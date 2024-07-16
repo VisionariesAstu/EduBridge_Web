@@ -62,7 +62,7 @@ model JobPost {
   PostedDate  DateTime
   Status      String
   Student     Student   @relation(fields: [StudentID], references: [StudentID])
-  Subject     Subject   @relation(fields: [SubjectID], references: [SubjectID])
+  Subject     Subject[]
   Applications JobApplication[]
 }
 model Subject {
