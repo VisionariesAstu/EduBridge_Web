@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "../styles/globals.css";
-import { ThemeProvider } from "@/components/theme_provider";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,18 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "min-h-screen font-sans antialiased bg-[#2e275f] bg-[url('/textured.svg')] bg-blend-color-burn bg-cover bg-center",
+          "min-h-screen font-sans antialiased bg-[#2e275f] bg-[url('/textured.svg')] bg-blend-color-burn bg-contain bg-center",
           fontSans.variable
         )}
       >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="system"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );
