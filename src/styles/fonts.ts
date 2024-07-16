@@ -20,7 +20,7 @@ export const roboto_mono = Roboto_Mono({
 });
 
 export const blinker = Blinker({
-  weight: ["400"],
+  weight: ["400", "700", "600"],
   style: ["normal"],
   subsets: ["latin"],
   display: "swap",
