@@ -56,8 +56,8 @@ export default function Page1() {
           </div>
         </div>
 
-        <div className="flex flex-col w-10/12 lg:w-8/12 mx-auto space-y-4">
-          <div className="w-full h-3/4 relative">
+        <div className="flex flex-col w-full lg:w-8/12 mx-auto h-96 lg:h-auto space-y-4 p-3 lg:pl-12 lg:py-12">
+          <div className="h-3/4 w-full relative">
             <Image
               src={Hero}
               fill
@@ -68,46 +68,33 @@ export default function Page1() {
           </div>
 
           <div className="flex space-x-3 h-1/4 justify-between w-full">
-            <div className="w-1/3 relative">
-              <Image
-                src={Hero}
-                fill
-                className="rounded-lg"
-                objectFit="cover"
-                alt="Student Interacting with online tutor via tablet and laptop"
-              />
-            </div>
-            <div className="w-1/3 relative">
-              <Image
-                src={Hero}
-                fill
-                className="rounded-lg"
-                objectFit="cover"
-                alt="Student Interacting with online tutor via tablet and laptop"
-              />
-            </div>
-            <div className="w-1/3 relative">
-              <Image
-                src={Hero}
-                fill
-                className="rounded-lg"
-                objectFit="cover"
-                alt="Student Interacting with online tutor via tablet and laptop"
-              />
-            </div>
+            {[1, 2, 3].map((_, i) => (
+              <div className="w-1/3 relative">
+                <Image
+                  src={Hero}
+                  fill
+                  className="rounded-lg"
+                  objectFit="cover"
+                  alt="Student Interacting with online tutor via tablet and laptop"
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div className="mx-auto my-14 w-3/4 flex justify-center lg:hidden">
+      <div className="mx-auto my-10 w-3/4 flex justify-center lg:hidden">
         <CustomButton text="Find Tutor" />
       </div>
-      <div className="mx-auto my-14 space-x-4 w-10/12 flex justify-center lg:hidden">
-        <Image
-          src={Hero}
-          width={125}
-          height={125}
-          alt="Student Interacting with online tutor via tablet and laptop"
-        />
+      <div className="mx-auto my-14 space-x-4 w-11/12 flex justify-center lg:hidden">
+        <div className="w-full relative">
+          <Image
+            src={Hero}
+            fill
+            objectFit="cover"
+            className="rounded-2xl"
+            alt="Student Interacting with online tutor via tablet and laptop"
+          />
+        </div>
         <div className="flex flex-col mt-2">
           <p className={`text-xs  text-white ${blinker.className}`}>
             You can find the Tutor at anytime, from anywhere and you also get to
@@ -123,6 +110,7 @@ export default function Page1() {
           </div>
         </div>
       </div>
+      <div className="h-10">.</div>
     </section>
   );
 }
