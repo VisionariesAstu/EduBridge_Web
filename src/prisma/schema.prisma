@@ -1,0 +1,137 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite" 
+  url      = env("DATABASE_URL")
+}
+
+
+
+model Parent {
+  ParentID Int @id @default(autoincrement())
+  UserID   Int @unique
+  User     User @relation(fields: [UserID], references: [UserID])
+  Student  Student[] 
+}
+model User {
+  UserID                Int      @id @default(autoincrement())
+  FirstName             String
+  LastName              String
+  Email                 String   @unique
+  Password              String
+  Role                  String
+  Verified              Boolean
+  BackgroundCheckStatus Boolean?
+  JoinDate              DateTime
+  Student               Student?
+  Tutor                 Tutor?
+  Parent                Parent?
+}
+
+model Tutor {
+  TutorID      Int               @id @default(autoincrement())
+  UserID       Int @unique
+  Subjects     String
+  Availability String
+  HourlyRate   Float
+  User         User              @relation(fields: [UserID], references: [UserID])
+  JobApplications JobApplication[]
+  ContractSession ContractSession[]
+  Reports      Report?
+}
+model Student {
+  StudentID  Int       @id @default(autoincrement())
+  UserID     Int @unique
+  ParentID   Int
+  GradeLevel String
+  User       User      @relation(fields: [UserID], references: [UserID])
+  Parent     Parent?   @relation(fields: [ParentID], references: [ParentID])
+  JobPosts   JobPost[]
+  Reports    Report[] 
+}
+model JobPost {
+  JobPostID   Int       @id @default(autoincrement())
+  StudentID   Int
+  SubjectID   Int
+  Description String
+  PostedDate  DateTime
+  Status      String
+  HourlyRate    Float
+  TotalHours Int
+  Student     Student   @relation(fields: [StudentID], references: [StudentID])
+  Subject     Subject[]
+  Applications JobApplication[]
+  Contract    Contract?
+
+}
+model Subject {
+  SubjectID   Int       @id @default(autoincrement())
+  SubjectName String
+  Description String
+  JobPosts    JobPost[]
+}
+
+model JobApplication {
+  JobApplicationID Int       @id @default(autoincrement())
+  JobPostID        Int
+  TutorID          Int
+  ApplicationLetter String
+  ApplicationDate  DateTime
+  Status           String
+  JobPost          JobPost   @relation(fields: [JobPostID], references: [JobPostID])
+  Tutor            Tutor     @relation(fields: [TutorID], references: [TutorID])
+  Contract         Contract?
+}
+
+
+
+model Contract{
+  ContractID Int @id @default(autoincrement())
+  JobApplicationID Int @unique
+  JobPostID Int @unique
+  JobPost JobPost @relation(fields: [JobPostID], references: [JobPostID])
+  JobApplication JobApplication @relation(fields: [JobApplicationID], references: [JobApplicationID])
+  Payment Payment?
+  ContractSession ContractSession?
+}
+model Payment {
+  PaymentID Int @id @default(autoincrement())
+  ContractID Int @unique
+  Amount Float
+  PaymentDate DateTime
+  Contract Contract @relation(fields: [ContractID], references: [ContractID])
+}
+model ContractSession {
+  SessionID      Int           @id @default(autoincrement())
+  ContractID     Int @unique
+  TutorID        Int @unique
+  ScheduledDate  DateTime
+  StartTime      DateTime
+  EndTime        DateTime
+  Status         String
+  Contract       Contract      @relation(fields: [ContractID], references: [ContractID])
+  Tutor          Tutor         @relation(fields: [TutorID], references: [TutorID])
+  Report         Report[]
+}
+model Report {
+  ReportID      Int              @id @default(autoincrement())
+  SessionID     Int
+  StudentID     Int 
+  TutorID       Int @unique
+  ReportDetails String
+  ReportDate    DateTime
+  Session       ContractSession  @relation(fields: [SessionID], references: [SessionID])
+  Student       Student          @relation(fields: [StudentID], references: [StudentID])
+  Tutor         Tutor            @relation(fields: [TutorID], references: [TutorID])
+}
+
+
+
