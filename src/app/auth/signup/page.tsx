@@ -16,13 +16,15 @@ import {
 const SignUp = () => {
   return (
     <div className="flex w-full min-h-screen bg-[url('/textured.svg')] bg-blend-multiply bg-contain bg-white text-black">
-      <div className="flex justify-center h-screen w-1/2 max-lg:hidden p-5 relative">
-        <Image
-          src={RightImage}
-          alt="Right Image"
-          fill
-          className="object-cover p-10 rounded-lg overflow-clip"
-        />
+      <div className="w-1/2 py-10 px-16 h-screen">
+        <div className="flex justify-center h-full w-full max-lg:hidden relative">
+          <Image
+            src={RightImage}
+            alt="Right Image"
+            fill
+            className="object-cover rounded-lg overflow-clip"
+          />
+        </div>
       </div>
       <div className="flex flex-col items-center justify-center w-1/2  p-32 max-lg:w-full max-md:p-10">
         <div className="flex justify-between w-full items-center mb-10">
@@ -80,7 +82,7 @@ const SignUp = () => {
           <div className="flex w-full h-[1px] bg-black"></div>
         </div>
 
-        <Button className="w-full flex gap-3 text-gray-500 bg-[#CEE5E6] hover:bg-[#b5d3d4] mb-1">
+        <Button className="w-full flex gap-3 text-gray-500 bg-white hover:text-black hover:bg-gray-100 mb-1">
           <img src={GoogleLogo.src} alt="" width={20} height={20} />
           Continue With Google
         </Button>

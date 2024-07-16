@@ -72,7 +72,7 @@ const Login = () => {
           <div className="flex w-full h-[1px] bg-black"></div>
         </div>
 
-        <Button className="w-full flex gap-3 text-gray-500 bg-[#CEE5E6] hover:bg-[#b5d3d4] mb-1">
+        <Button className="w-full flex gap-3 text-gray-500 bg-white hover:text-black hover:bg-gray-100 mb-1">
           <img src={GoogleLogo.src} alt="" width={20} height={20} />
           Continue With Google
         </Button>
