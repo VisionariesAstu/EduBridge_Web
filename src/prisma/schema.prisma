@@ -44,6 +44,8 @@ model Tutor {
   HourlyRate   Float
   User         User              @relation(fields: [UserID], references: [UserID])
   JobApplications JobApplication[]
+  ContractSession ContractSession[]
+  Reports      Report?
 }
 model Student {
   StudentID  Int       @id @default(autoincrement())
@@ -52,7 +54,8 @@ model Student {
   GradeLevel String
   User       User      @relation(fields: [UserID], references: [UserID])
   Parent     Parent?   @relation(fields: [ParentID], references: [ParentID])
-  JobPosts   JobPost[] 
+  JobPosts   JobPost[]
+  Reports    Report[] 
 }
 model JobPost {
   JobPostID   Int       @id @default(autoincrement())
@@ -61,9 +64,13 @@ model JobPost {
   Description String
   PostedDate  DateTime
   Status      String
+  HourlyRate    Float
+  TotalHours Int
   Student     Student   @relation(fields: [StudentID], references: [StudentID])
   Subject     Subject[]
   Applications JobApplication[]
+  Contract    Contract?
+
 }
 model Subject {
   SubjectID   Int       @id @default(autoincrement())
@@ -71,14 +78,59 @@ model Subject {
   Description String
   JobPosts    JobPost[]
 }
+
 model JobApplication {
   JobApplicationID Int       @id @default(autoincrement())
   JobPostID        Int
   TutorID          Int
+  ApplicationLetter String
   ApplicationDate  DateTime
   Status           String
   JobPost          JobPost   @relation(fields: [JobPostID], references: [JobPostID])
   Tutor            Tutor     @relation(fields: [TutorID], references: [TutorID])
+  Contract         Contract?
+}
+
+
+
+model Contract{
+  ContractID Int @id @default(autoincrement())
+  JobApplicationID Int @unique
+  JobPostID Int @unique
+  JobPost JobPost @relation(fields: [JobPostID], references: [JobPostID])
+  JobApplication JobApplication @relation(fields: [JobApplicationID], references: [JobApplicationID])
+  Payment Payment?
+  ContractSession ContractSession?
+}
+model Payment {
+  PaymentID Int @id @default(autoincrement())
+  ContractID Int @unique
+  Amount Float
+  PaymentDate DateTime
+  Contract Contract @relation(fields: [ContractID], references: [ContractID])
+}
+model ContractSession {
+  SessionID      Int           @id @default(autoincrement())
+  ContractID     Int @unique
+  TutorID        Int @unique
+  ScheduledDate  DateTime
+  StartTime      DateTime
+  EndTime        DateTime
+  Status         String
+  Contract       Contract      @relation(fields: [ContractID], references: [ContractID])
+  Tutor          Tutor         @relation(fields: [TutorID], references: [TutorID])
+  Report         Report[]
+}
+model Report {
+  ReportID      Int              @id @default(autoincrement())
+  SessionID     Int
+  StudentID     Int 
+  TutorID       Int @unique
+  ReportDetails String
+  ReportDate    DateTime
+  Session       ContractSession  @relation(fields: [SessionID], references: [SessionID])
+  Student       Student          @relation(fields: [StudentID], references: [StudentID])
+  Tutor         Tutor            @relation(fields: [TutorID], references: [TutorID])
 }
 
 
