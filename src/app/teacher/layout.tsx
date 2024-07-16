@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="flex w-full min-h-screen bg-[url('/texture.png')] bg-white text-black">
+    <div className="flex w-full min-h-screen bg-[url('/textured.svg')] bg-blend-multiply bg-contain bg-white text-black">
       <div className="fixed">
         <TeacherSideBar />
       </div>

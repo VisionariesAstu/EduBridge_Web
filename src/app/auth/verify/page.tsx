@@ -8,7 +8,7 @@ import { InputWithIcon } from "@/components/ui/input";
 import { EnvelopeOpenIcon } from "@radix-ui/react-icons";
 const Verify = () => {
   return (
-    <div className="flex w-full min-h-screen bg-[url('/texture.png')] bg-white text-black">
+    <div className="flex w-full min-h-screen bg-[url('/textured.svg')] bg-blend-multiply bg-contain bg-white text-black">
       <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5 relative">
         <Image
           src={RightImage}
