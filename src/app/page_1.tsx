@@ -3,6 +3,7 @@ import { blinker, fugaz_one } from "@/styles/fonts";
 import CustomButton from "@/components/ui/custom_button";
 import Hero from "../../public/Hero.jpg";
 import { PlayIcon } from "@radix-ui/react-icons";
+import Link from "next/link";
 
 export default function Page1() {
   return (
@@ -24,9 +25,11 @@ export default function Page1() {
           >
             What Kind of Teaching Tutor are looking for ?
           </p>
-          <div className="lg:my-14 lg:w-40 py-5 lg:justify-center hidden lg:flex m-0">
-            <CustomButton text="Find Tutor" />
-          </div>
+          <Link href={"/auth/login"} className="lg:my-14">
+            <div className="lg:w-40 py-5 lg:justify-center hidden lg:flex m-0">
+              <CustomButton text="Find Tutor" />
+            </div>
+          </Link>
 
           <div className="hidden lg:flex w-9/12 space-x-5">
             <div className="w-2/3 relative">
@@ -82,9 +85,11 @@ export default function Page1() {
           </div>
         </div>
       </div>
-      <div className="mx-auto my-10 w-3/4 flex justify-center lg:hidden">
-        <CustomButton text="Find Tutor" />
-      </div>
+      <Link href={"/auth/login"}>
+        <div className="mx-auto my-10 w-3/4 flex justify-center lg:hidden">
+          <CustomButton text="Find Tutor" />
+        </div>
+      </Link>
       <div className="mx-auto my-14 space-x-4 w-11/12 flex justify-center lg:hidden">
         <div className="w-full relative">
           <Image
