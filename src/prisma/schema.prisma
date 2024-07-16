@@ -9,10 +9,18 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite" // or your preferred database provider
+  provider = "sqlite" 
   url      = env("DATABASE_URL")
 }
 
+
+
+model Parent {
+  ParentID Int @id @default(autoincrement())
+  UserID   Int @unique
+  User     User @relation(fields: [UserID], references: [UserID])
+  Student  Student[] 
+}
 model User {
   UserID                Int      @id @default(autoincrement())
   FirstName             String
@@ -25,14 +33,9 @@ model User {
   JoinDate              DateTime
   Student               Student?
   Tutor                 Tutor?
+  Parent                Parent?
 }
-model Student {
-  StudentID  Int       @id @default(autoincrement())
-  UserID     Int @unique
-  ParentID   Int
-  GradeLevel String
-  User       User      @relation(fields: [UserID], references: [UserID])
-}
+
 model Tutor {
   TutorID      Int               @id @default(autoincrement())
   UserID       Int @unique
@@ -40,6 +43,43 @@ model Tutor {
   Availability String
   HourlyRate   Float
   User         User              @relation(fields: [UserID], references: [UserID])
- 
+  JobApplications JobApplication[]
 }
+model Student {
+  StudentID  Int       @id @default(autoincrement())
+  UserID     Int @unique
+  ParentID   Int
+  GradeLevel String
+  User       User      @relation(fields: [UserID], references: [UserID])
+  Parent     Parent?   @relation(fields: [ParentID], references: [ParentID])
+  JobPosts   JobPost[] 
+}
+model JobPost {
+  JobPostID   Int       @id @default(autoincrement())
+  StudentID   Int
+  SubjectID   Int
+  Description String
+  PostedDate  DateTime
+  Status      String
+  Student     Student   @relation(fields: [StudentID], references: [StudentID])
+  Subject     Subject   @relation(fields: [SubjectID], references: [SubjectID])
+  Applications JobApplication[]
+}
+model Subject {
+  SubjectID   Int       @id @default(autoincrement())
+  SubjectName String
+  Description String
+  JobPosts    JobPost[]
+}
+model JobApplication {
+  JobApplicationID Int       @id @default(autoincrement())
+  JobPostID        Int
+  TutorID          Int
+  ApplicationDate  DateTime
+  Status           String
+  JobPost          JobPost   @relation(fields: [JobPostID], references: [JobPostID])
+  Tutor            Tutor     @relation(fields: [TutorID], references: [TutorID])
+}
+
+
 
