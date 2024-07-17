@@ -3,13 +3,13 @@ import TeacherSideBar from "@/components/sidebar/teacher-sidebar";
 import { BellIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { InputWithIcon } from "@/components/ui/input";
 import JobPostComponent from "./_components/job-post-component";
+import Header from "./_components/header";
 
 const Home = () => {
   return (
     <div className="flex w-full flex-col">
-      <div className="flex justify-between w-full items-center border-b-[1px] border-gray-400 py-5 px-10">
-        <span className="font-bold text-[#25324B]">Home</span>
-        <BellIcon width={20} height={20} />
+      <div className="fixed top-0 right-0 left-72 z-10">
+        <Header name="Home" />
       </div>
       <div className="flex flex-col gap-4 m-4">
         <div className="bg-white rounded-lg mb-4 flex h-40 border-[1px] border-gray-400 justify-center items-center">
@@ -17,7 +17,7 @@ const Home = () => {
         </div>
         <div className="w-1/2 border-gray-400">
           <InputWithIcon
-            icon={<MagnifyingGlassIcon />}
+            icon={<MagnifyingGlassIcon className="w-5 h-5" />}
             placeholder="Search"
             className=""
           />
