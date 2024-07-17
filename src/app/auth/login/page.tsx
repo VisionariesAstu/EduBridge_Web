@@ -12,6 +12,7 @@ import {
   EyeOpenIcon,
   LockClosedIcon,
 } from "@radix-ui/react-icons";
+import LoginForm from "@/components/form/login-form";
 const Login = () => {
   return (
     <div className="flex w-full min-h-screen bg-[url('/textured.svg')] bg-blend-multiply bg-contain bg-white text-black">
@@ -37,35 +38,7 @@ const Login = () => {
             <img src={Logo.src} alt="" className="w-14" />
           </div>
         </div>
-        <form action={login} method="POST" className="w-full">
-          <div className="flex flex-col gap-3 w-full mb-1">
-            <InputWithIcon
-              icon={<EnvelopeClosedIcon color="gray" />}
-              type="email"
-              placeholder="Email"
-              name="email"
-              className=""
-            />
-            <div className="flex w-full relative items-center">
-              <InputWithIcon
-                icon={<LockClosedIcon color="gray" />}
-                type="password"
-                placeholder="Password"
-                name="password"
-                className="w-full"
-              />
-              <div className="absolute right-3 ">
-                <EyeOpenIcon color="gray" className="cursor-pointer" />
-              </div>
-            </div>
-          </div>
-          <div className="flex w-full justify-start my-5 mb-7 text-primary">
-            <Link href="/auth/forgot" className="text-xs">
-              Forgot Password?
-            </Link>
-          </div>
-          <Button className="w-full py-5 mb-3">Login</Button>
-        </form>
+        <LoginForm />
         <div className="flex w-full justify-center items-center mb-2">
           <div className="flex w-full h-[1px] bg-black"></div>
           <div className="px-5"> or</div>
