@@ -9,13 +9,15 @@ import { EnvelopeClosedIcon } from "@radix-ui/react-icons";
 const Forgot = () => {
   return (
     <div className="flex w-full min-h-screen bg-[url('/textured.svg')] bg-contain bg-opacity-75 bg-blend-multiply bg-white text-black">
-      <div className="flex justify-center  h-screen w-1/2 max-lg:hidden p-5 relative">
-        <Image
-          src={RightImage}
-          alt="Right Image"
-          fill
-          className="object-cover rounded-lg p-10"
-        />
+      <div className="w-1/2 py-10 px-16 h-screen">
+        <div className="flex justify-center h-full w-full max-lg:hidden relative">
+          <Image
+            src={RightImage}
+            alt="Right Image"
+            fill
+            className="object-cover rounded-lg overflow-clip"
+          />
+        </div>
       </div>
       <div className="flex flex-col items-center justify-center w-1/2  p-32 max-lg:w-full max-md:p-10">
         <div className="flex justify-between w-full items-center mb-10">
